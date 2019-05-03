@@ -1,16 +1,48 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+buildscript {
+    ext.kotlin_version = '1.3.31'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE"
+    }
 }
+
+apply plugin: 'kotlin'
+apply plugin: "kotlin-spring"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group 'kotlin'
 version '1.0-SNAPSHOT'
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    
+    compile 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.7.3'
+
+    // to embed Altair tool
+    runtime 'com.graphql-java-kickstart:altair-spring-boot-starter:5.7.3'
+
+    // to embed GraphiQL tool
+    runtime 'com.graphql-java-kickstart:graphiql-spring-boot-starter:5.7.3'
+
+    // to embed Voyager tool
+    runtime 'com.graphql-java-kickstart:voyager-spring-boot-starter:5.7.3'
+    
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    
+    // testing facilities
+    testCompile 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:5.7.3'
 }
 
 compileKotlin {
