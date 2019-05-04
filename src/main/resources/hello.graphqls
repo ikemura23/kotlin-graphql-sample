@@ -1,3 +1,9 @@
 type Query {
     version: String!
+    starWarsHero:Hero
+}
+
+type Hero {
+    name: String!
+    friends:[Hero]!
 }
