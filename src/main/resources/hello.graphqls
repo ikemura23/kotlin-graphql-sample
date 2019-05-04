@@ -6,4 +6,5 @@ type Query {
 type Hero {
     name: String!
     friends:[Hero]!
+#    heroByName(name:String!):Hero
 }
