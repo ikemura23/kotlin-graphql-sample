@@ -1,6 +1,6 @@
 type Query {
     version: String!
-    starWarsHero:Hero
+    starWarsHero: Hero
 }
 
 type Hero {

@@ -1,5 +1,3 @@
 package demo.model
 
-class Hero(val name: String) {
-
-}
+data class Hero(val name: String)
